@@ -1,41 +1,91 @@
 "use client";
 
+import { Fragment } from "react/jsx-runtime";
+import SkillCategory from "./skills";
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 type HighlightItem = { icon: string; title: string; sub: string };
-type SkillCat      = { title: string; tags: string[]; learning?: boolean };
-type TimelineItem  = { role: string; date: string; company: string; muted?: boolean; points: string[] };
-type Project       = { num: string; title: string; desc: string; highlights: string[]; stack: string[] };
-type ContactLink   = { icon: string; label: string; href: string };
-type Stat          = { num: string; label: string };
+type SkillCat = { title: string; tags: string[]; learning?: boolean };
+type TimelineItem = {
+  role: string;
+  date: string;
+  company: string;
+  muted?: boolean;
+  points: string[];
+};
+type Project = {
+  num: string;
+  title: string;
+  desc: string;
+  highlights: string[];
+  stack: string[];
+};
+type ContactLink = { icon: string; label: string; href: string };
+type Stat = { num: string; label: string };
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const stats: Stat[] = [
-  { num: "1.5+", label: "Years Experience"    },
-  { num: "2",    label: "Products Shipped"    },
-  { num: "20+",  label: "UI Components Built" },
-  { num: "40+",  label: "Bugs Resolved"       },
+  { num: "1.5+", label: "Years Experience" },
+  { num: "2", label: "Products Shipped" },
+  { num: "20+", label: "UI Components Built" },
+  { num: "40+", label: "Bugs Resolved" },
 ];
 
 const highlights: HighlightItem[] = [
-  { icon: "⚡", title: "Performance-Focused",    sub: "SSR, SSG, lazy loading & bundle optimization"      },
-  { icon: "🧩", title: "Component Architecture", sub: "20+ reusable components across production apps"    },
-  { icon: "🔐", title: "Auth & API Integration", sub: "JWT authentication, 15+ REST API endpoints"        },
-  { icon: "📱", title: "Responsive Design",       sub: "Pixel-perfect UI across mobile, tablet & desktop" },
+  {
+    icon: "⚡",
+    title: "Performance-Focused",
+    sub: "SSR, SSG, lazy loading & bundle optimization",
+  },
+  {
+    icon: "🧩",
+    title: "Component Architecture",
+    sub: "20+ reusable components across production apps",
+  },
+  {
+    icon: "🔐",
+    title: "Auth & API Integration",
+    sub: "JWT authentication, 15+ REST API endpoints",
+  },
+  {
+    icon: "📱",
+    title: "Responsive Design",
+    sub: "Pixel-perfect UI across mobile, tablet & desktop",
+  },
 ];
 
 const skillCats: SkillCat[] = [
-  { title: "Languages",              tags: ["HTML5", "CSS3", "JavaScript (ES6+)"]                                                                  },
-  { title: "Frameworks & Libraries", tags: ["React.js", "Next.js", "Redux Toolkit"]                                                                },
-  { title: "Next.js Capabilities",   tags: ["SSR", "SSG", "Dynamic Routing", "Lazy Loading"]                                                       },
-  { title: "Core Competencies",      tags: ["REST API Integration", "JWT Auth", "RBAC", "Responsive Design", "Performance Optimization"]           },
-  { title: "Tools",                  tags: ["Git", "GitHub", "VS Code", "Chrome DevTools"]                                                         },
-  { title: "Currently Learning",     tags: ["TypeScript", "AI-first Workflows"], learning: true                                                    },
+  { title: "Languages", tags: ["HTML5", "CSS3", "JavaScript (ES6+)"] },
+  {
+    title: "Frameworks & Libraries",
+    tags: ["React.js", "Next.js", "Redux Toolkit"],
+  },
+  {
+    title: "Next.js Capabilities",
+    tags: ["SSR", "SSG", "Dynamic Routing", "Lazy Loading"],
+  },
+  {
+    title: "Core Competencies",
+    tags: [
+      "REST API Integration",
+      "JWT Auth",
+      "RBAC",
+      "Responsive Design",
+      "Performance Optimization",
+    ],
+  },
+  { title: "Tools", tags: ["Git", "GitHub", "VS Code", "Chrome DevTools"] },
+  {
+    title: "Currently Learning",
+    tags: ["TypeScript", "AI-first Workflows"],
+    learning: true,
+  },
 ];
 
 const experience: TimelineItem[] = [
   {
-    role:    "Frontend React Developer",
-    date:    "Nov 2024 – Present",
+    role: "Frontend React Developer",
+    date: "Nov 2024 – Present",
     company: "Piccosoft Software Labs India Pvt. Ltd. · Chennai, Tamil Nadu",
     points: [
       "Architected and shipped a production-level B2C e-commerce platform using React.js and Next.js, delivering 100% of planned features on schedule across 6+ months.",
@@ -46,10 +96,10 @@ const experience: TimelineItem[] = [
     ],
   },
   {
-    role:    "Trainee React Developer",
-    date:    "Aug 2024 – Nov 2024",
+    role: "Trainee React Developer",
+    date: "Aug 2024 – Nov 2024",
     company: "Piccosoft Software Labs India Pvt. Ltd. · Chennai, Tamil Nadu",
-    muted:   true,
+    muted: true,
     points: [
       "Built 10+ UI components using React.js, React Hooks, and dynamic routing; integrated REST APIs under senior developer mentorship.",
       "Mastered React.js, Next.js, Redux Toolkit, and component-based architecture within the first 3 months.",
@@ -59,9 +109,9 @@ const experience: TimelineItem[] = [
 
 const projects: Project[] = [
   {
-    num:   "01",
+    num: "01",
     title: "E-Commerce Platform (B2C)",
-    desc:  "A full-featured B2C storefront with product listing, detail pages, and role-based UI rendering for 3+ user types.",
+    desc: "A full-featured B2C storefront with product listing, detail pages, and role-based UI rendering for 3+ user types.",
     highlights: [
       "JWT-based authentication with protected routing and conditional UI",
       "Next.js SSR & SSG across 10+ high-traffic pages for SEO boost",
@@ -70,9 +120,9 @@ const projects: Project[] = [
     stack: ["React.js", "Next.js", "Redux Toolkit", "REST API", "JWT"],
   },
   {
-    num:   "02",
+    num: "02",
     title: "Product Traceability System",
-    desc:  "A supply chain tracking platform with role-based dashboards for admins, suppliers, and auditors using RBAC.",
+    desc: "A supply chain tracking platform with role-based dashboards for admins, suppliers, and auditors using RBAC.",
     highlights: [
       "Role-based dashboards for 3 user types using RBAC and dynamic routing",
       "Dynamic data tables consuming 10+ REST API endpoints",
@@ -83,9 +133,17 @@ const projects: Project[] = [
 ];
 
 const contactLinks: ContactLink[] = [
-  { icon: "✉️", label: "kaviyamarimuthan005@gmail.com", href: "mailto:kaviyamarimuthan005@gmail.com" },
-  { icon: "📞", label: "+91 63690 23323",               href: "tel:+916369023323"                    },
-  { icon: "💼", label: "linkedin.com/in/kaviya005",     href: "https://linkedin.com/in/kaviya005"    },
+  {
+    icon: "✉️",
+    label: "kaviyamarimuthan005@gmail.com",
+    href: "mailto:kaviyamarimuthan005@gmail.com",
+  },
+  { icon: "📞", label: "+91 63690 23323", href: "tel:+916369023323" },
+  {
+    icon: "💼",
+    label: "linkedin.com/in/kaviya005",
+    href: "https://linkedin.com/in/kaviya005",
+  },
 ];
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -93,8 +151,12 @@ const contactLinks: ContactLink[] = [
 function SectionHeader({ tag, title }: { tag: string; title: string }) {
   return (
     <div className="text-center mb-16">
-      <p className="text-xs font-semibold tracking-[0.15em] uppercase text-accent mb-3">{tag}</p>
-      <h2 className="font-playfair text-4xl md:text-5xl font-bold text-[#f0eff4]">{title}</h2>
+      <p className="text-xs font-semibold tracking-[0.15em] uppercase text-accent mb-3">
+        {tag}
+      </p>
+      <h2 className="font-playfair text-4xl md:text-5xl font-bold text-[#f0eff4]">
+        {title}
+      </h2>
       <div className="w-14 h-[3px] bg-accent mx-auto mt-4 rounded-full" />
     </div>
   );
@@ -107,39 +169,41 @@ function HighlightCard({ icon, title, sub }: HighlightItem) {
         {icon}
       </div>
       <div>
-        <strong className="block text-[0.95rem] text-[#f0eff4] mb-0.5">{title}</strong>
+        <strong className="block text-[0.95rem] text-[#f0eff4] mb-0.5">
+          {title}
+        </strong>
         <span className="text-[0.82rem] text-muted">{sub}</span>
       </div>
     </div>
   );
 }
 
-function SkillCategory({ title, tags, learning }: SkillCat) {
-  return (
-    <div className="bg-card border border-white/[0.07] rounded-2xl p-8 transition-all duration-200 hover:border-accent hover:-translate-y-1 cursor-default">
-      <p className="text-[0.75rem] font-semibold tracking-[0.12em] uppercase text-accent mb-5">{title}</p>
-      <div className="flex flex-wrap gap-2.5">
-        {tags.map((tag) =>
-          learning ? (
-            <span
-              key={tag}
-              className="bg-accent2/[0.08] border border-accent2/30 text-accent2 text-[0.82rem] px-3.5 py-1.5 rounded-md font-medium"
-            >
-              {tag}
-            </span>
-          ) : (
-            <span
-              key={tag}
-              className="bg-white/5 border border-white/[0.07] text-[#f0eff4] text-[0.82rem] px-3.5 py-1.5 rounded-md font-medium transition-colors duration-200 hover:bg-accent/10 hover:border-accent/40 cursor-default"
-            >
-              {tag}
-            </span>
-          )
-        )}
-      </div>
-    </div>
-  );
-}
+// function SkillCategory({ title, tags, learning }: SkillCat) {
+//   return (
+//     <div className="bg-card border border-white/[0.07] rounded-2xl p-8 transition-all duration-200 hover:border-accent hover:-translate-y-1 cursor-default">
+//       <p className="text-[0.75rem] font-semibold tracking-[0.12em] uppercase text-accent mb-5">{title}</p>
+//       <div className="flex flex-wrap gap-2.5">
+//         {tags.map((tag) =>
+//           learning ? (
+//             <span
+//               key={tag}
+//               className="bg-accent2/[0.08] border border-accent2/30 text-accent2 text-[0.82rem] px-3.5 py-1.5 rounded-md font-medium"
+//             >
+//               {tag}
+//             </span>
+//           ) : (
+//             <span
+//               key={tag}
+//               className="bg-white/5 border border-white/[0.07] text-[#f0eff4] text-[0.82rem] px-3.5 py-1.5 rounded-md font-medium transition-colors duration-200 hover:bg-accent/10 hover:border-accent/40 cursor-default"
+//             >
+//               {tag}
+//             </span>
+//           )
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
 
 function TimelineEntry({ role, date, company, muted, points }: TimelineItem) {
   return (
@@ -153,7 +217,9 @@ function TimelineEntry({ role, date, company, muted, points }: TimelineItem) {
         ].join(" ")}
       />
       <div className="flex justify-between items-center flex-wrap gap-2 mb-1">
-        <span className="text-[1.1rem] font-semibold text-[#f0eff4]">{role}</span>
+        <span className="text-[1.1rem] font-semibold text-[#f0eff4]">
+          {role}
+        </span>
         <span className="text-[0.78rem] text-accent bg-accent/10 px-3 py-1 rounded-full font-semibold">
           {date}
         </span>
@@ -161,7 +227,10 @@ function TimelineEntry({ role, date, company, muted, points }: TimelineItem) {
       <p className="text-[0.88rem] text-muted mb-4">{company}</p>
       <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
         {points.map((pt, i) => (
-          <li key={i} className="text-[0.88rem] text-muted leading-relaxed pl-5 relative">
+          <li
+            key={i}
+            className="text-[0.88rem] text-muted leading-relaxed pl-5 relative"
+          >
             <span className="absolute left-0 text-accent text-[0.8rem]">→</span>
             {pt}
           </li>
@@ -181,8 +250,13 @@ function ProjectCard({ num, title, desc, highlights, stack }: Project) {
       <p className="text-[0.88rem] text-muted leading-relaxed mb-6">{desc}</p>
       <ul className="mb-6 flex flex-col gap-1.5 list-none p-0 m-0">
         {highlights.map((h, i) => (
-          <li key={i} className="text-[0.82rem] text-muted leading-relaxed pl-4 relative">
-            <span className="absolute left-0 top-[3px] text-accent text-[0.6rem]">✦</span>
+          <li
+            key={i}
+            className="text-[0.82rem] text-muted leading-relaxed pl-4 relative"
+          >
+            <span className="absolute left-0 top-[3px] text-accent text-[0.6rem]">
+              ✦
+            </span>
             {h}
           </li>
         ))}
@@ -206,7 +280,6 @@ function ProjectCard({ num, title, desc, highlights, stack }: Project) {
 export default function HeaderComponent() {
   return (
     <div className="min-h-screen overflow-x-hidden">
-
       {/* Noise overlay — bg-noise utility defined in globals.css */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-40 bg-noise" />
 
@@ -216,16 +289,18 @@ export default function HeaderComponent() {
           KM
         </span>
         <ul className="flex gap-8 list-none m-0 p-0">
-          {["about", "skills", "experience", "projects", "contact"].map((item) => (
-            <li key={item}>
-              <a
-                href={`#${item}`}
-                className="text-muted text-[0.85rem] font-medium tracking-[0.08em] uppercase no-underline transition-colors duration-200 hover:text-accent"
-              >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </a>
-            </li>
-          ))}
+          {["about", "skills", "experience", "projects", "contact"].map(
+            (item) => (
+              <li key={item}>
+                <a
+                  href={`#${item}`}
+                  className="text-muted text-[0.85rem] font-medium tracking-[0.08em] uppercase no-underline transition-colors duration-200 hover:text-accent"
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </a>
+              </li>
+            ),
+          )}
         </ul>
       </nav>
 
@@ -254,8 +329,9 @@ export default function HeaderComponent() {
           </p>
 
           <p className="animate-fade-up-3 text-base text-muted leading-[1.8] max-w-[600px] mb-10">
-            Building fast, clean &amp; production-ready web applications with React.js and Next.js.
-            Passionate about component architecture, performance optimization, and delivering real user value.
+            Building fast, clean &amp; production-ready web applications with
+            React.js and Next.js. Passionate about component architecture,
+            performance optimization, and delivering real user value.
           </p>
 
           <div className="animate-fade-up-4 flex gap-4 flex-wrap">
@@ -277,7 +353,9 @@ export default function HeaderComponent() {
           <div className="animate-fade-up-5 flex gap-12 mt-16 pt-8 border-t border-white/[0.07] flex-wrap">
             {stats.map((s) => (
               <div key={s.label}>
-                <div className="font-playfair text-[2.2rem] font-bold text-accent">{s.num}</div>
+                <div className="font-playfair text-[2.2rem] font-bold text-accent">
+                  {s.num}
+                </div>
                 <div className="text-[0.8rem] text-muted mt-1">{s.label}</div>
               </div>
             ))}
@@ -291,21 +369,31 @@ export default function HeaderComponent() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-[1100px] mx-auto items-center">
           <div className="space-y-5">
             <p className="text-muted leading-[1.9] text-base">
-              I&apos;m a <strong className="text-[#f0eff4]">Frontend React Developer</strong> with 1.5+ years of
-              experience building and shipping production-ready web applications. I currently work at{" "}
-              <strong className="text-[#f0eff4]">Piccosoft Software Labs</strong> in Chennai, where I&apos;ve
-              delivered real products used by real users.
+              I&apos;m a{" "}
+              <strong className="text-[#f0eff4]">
+                Frontend React Developer
+              </strong>{" "}
+              with 1.5+ years of experience building and shipping
+              production-ready web applications. I currently work at{" "}
+              <strong className="text-[#f0eff4]">
+                Piccosoft Software Labs
+              </strong>{" "}
+              in Chennai, where I&apos;ve delivered real products used by real
+              users.
             </p>
             <p className="text-muted leading-[1.9] text-base">
-              I love turning complex requirements into clean, reusable UI components. My focus is always on{" "}
-              <strong className="text-[#f0eff4]">performance, scalability, and great user experience</strong> —
-              whether that&apos;s optimizing load times with SSR/SSG or building consistent designs across all
-              screen sizes.
+              I love turning complex requirements into clean, reusable UI
+              components. My focus is always on{" "}
+              <strong className="text-[#f0eff4]">
+                performance, scalability, and great user experience
+              </strong>{" "}
+              — whether that&apos;s optimizing load times with SSR/SSG or
+              building consistent designs across all screen sizes.
             </p>
             <p className="text-muted leading-[1.9] text-base">
               I&apos;m currently expanding my skills by learning{" "}
-              <strong className="text-[#f0eff4]">TypeScript</strong> and I&apos;m eager to explore AI-first
-              development workflows.
+              <strong className="text-[#f0eff4]">TypeScript</strong> and
+              I&apos;m eager to explore AI-first development workflows.
             </p>
           </div>
           <div className="flex flex-col gap-4">
@@ -320,14 +408,17 @@ export default function HeaderComponent() {
       <section id="skills" className="relative z-[1] px-16 py-28">
         <SectionHeader tag="What I Know" title="Technical Skills" />
         <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 max-w-[1100px] mx-auto">
-          {skillCats.map((cat) => (
-            <SkillCategory key={cat.title} {...cat} />
-          ))}
+         {skillCats.map((cat) => (
+  <SkillCategory key={cat.title} {...cat} />
+))}
         </div>
       </section>
 
       {/* ── EXPERIENCE ──────────────────────────────────────────────────────── */}
-      <section id="experience" className="relative z-[1] bg-surface px-16 py-28">
+      <section
+        id="experience"
+        className="relative z-[1] bg-surface px-16 py-28"
+      >
         <SectionHeader tag="Where I've Worked" title="Experience" />
         {/* before: pseudo draws the vertical timeline line */}
         <div className="relative max-w-[800px] mx-auto before:content-[''] before:absolute before:left-4 before:inset-y-0 before:w-px before:bg-white/[0.07]">
@@ -355,9 +446,12 @@ export default function HeaderComponent() {
             🎓
           </div>
           <div>
-            <p className="text-[1.15rem] font-bold text-[#f0eff4] mb-1.5">Master of Mathematics</p>
+            <p className="text-[1.15rem] font-bold text-[#f0eff4] mb-1.5">
+              Master of Mathematics
+            </p>
             <p className="text-[0.9rem] text-muted mb-3">
-              Khadir Mohideen College, Bharathidhasan University · Thanjavur, Tamil Nadu
+              Khadir Mohideen College, Bharathidhasan University · Thanjavur,
+              Tamil Nadu
             </p>
             <span className="text-[0.78rem] font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
               Jul 2018 – Mar 2023
@@ -371,8 +465,8 @@ export default function HeaderComponent() {
         <div className="max-w-[700px] mx-auto text-center">
           <SectionHeader tag="Let's Connect" title="Get In Touch" />
           <p className="text-base text-muted mt-4 mb-12 leading-[1.8]">
-            I&apos;m open to new opportunities where I can contribute, grow, and keep learning. Feel free to
-            reach out — I&apos;d love to connect!
+            I&apos;m open to new opportunities where I can contribute, grow, and
+            keep learning. Feel free to reach out — I&apos;d love to connect!
           </p>
           <div className="flex flex-wrap gap-4 justify-center mb-12">
             {contactLinks.map((link) => (
@@ -399,7 +493,8 @@ export default function HeaderComponent() {
 
       {/* ── FOOTER ──────────────────────────────────────────────────────────── */}
       <footer className="relative z-[1] text-center py-8 border-t border-white/[0.07] text-muted text-[0.82rem]">
-        Designed &amp; Built by <strong className="text-[#f0eff4]">Kaviya M</strong> · Frontend React
+        Designed &amp; Built by{" "}
+        <strong className="text-[#f0eff4]">Kaviya M</strong> · Frontend React
         Developer · Chennai © 2025
       </footer>
     </div>
