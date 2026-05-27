@@ -1,8 +1,5 @@
-export default function AboutPage() {
-  return (
-    <main>
-      <h1>Experience</h1>
-      <p>Frontend React Developer with 2 years of experience.</p>
-    </main>
-  );
+import ExperiencePage from "@/Components/PageSections/Exeperience";
+
+export default function Page() {
+  return <ExperiencePage />;
 }
